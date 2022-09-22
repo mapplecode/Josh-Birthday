@@ -1,3 +1,4 @@
+from genericpath import exists
 import openpyxl,os
 import datetime
 import csv 
@@ -5,10 +6,13 @@ import schedule
 import time
 
 CsvFileName = 'birthday.csv'
-
+if CsvFileName is not exists:
+    with open(CsvFileName,'a',newline='') as f:
+        writer = csv.writer(f)
+    
 def getFile():
     paths = "file"
-    getFolderPath = os.path.abspath(paths)
+    getFolderPath = os.path.abspath(paths)          
     for file in os.listdir(getFolderPath):
         if file.endswith(".xlsx"):
             file_path = f"{getFolderPath}\{file}"
