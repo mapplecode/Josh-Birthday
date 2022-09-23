@@ -25,7 +25,7 @@ def main():
     os.remove(CsvFileName)
     # Get the four days preceding the current date. 
     Current_Date = datetime.datetime.today()
-    Previous_Date = Current_Date - datetime.timedelta(days=4)
+    Previous_Date = Current_Date + datetime.timedelta(days=4)
     preDate = str(Previous_Date).split(" ")[0]
     formateCurrentDate = str(Current_Date).split(" ")[0]
     with open(CsvFileName,'a',newline='') as csvfile:
